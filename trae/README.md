@@ -159,8 +159,8 @@ python -m venv .venv
 本工具的方法论参考了以下开源项目：
 
 - **[wechat-decrypt](https://github.com/LC044/WeChatMsg)** — 微信数据库解密，HMAC 验证方法
-- **[qq-win-db-key](https://github.com/QQ-DB-Key)** — QQ NT 数据库密钥提取，Frida hook 方法
-- **[search_wechat_key](https://github.com/search_wechat_key)** — 微信内存密钥搜索，指针追踪方法
+- **[qq-db-key-injector](https://github.com/Mrs4s/qq-db-key-injector)** — QQ 本机数据库密钥提取
+- **[search_wechat_key](https://github.com/sunhanaix/search_wechat_key)** — 微信内存密钥搜索，指针追踪方法
 - **[trae-chat-export-to-markdown](https://github.com/ameca42/trae-chat-export-to-markdown)** — Trae 聊天导出（未加密版本）
 
 ## 注意事项

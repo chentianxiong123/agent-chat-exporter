@@ -36,6 +36,4 @@ OpenCode 使用明文 SQLite。核心表：
 
 ## 参考
 
-- [opencode issue #16777](https://github.com/sst/opencode/issues/16777) — database bloat
-- [opencode issue #31391](https://github.com/sst/opencode/issues/31391) — 10GB+ db
-- [ocgc](https://github.com/) — OpenCode Garbage Collector（第三方清理工具）
+- **[ocgc](https://github.com/ocgc)** — OpenCode Garbage Collector（第三方清理工具，针对 opencode 数据库膨胀问题）

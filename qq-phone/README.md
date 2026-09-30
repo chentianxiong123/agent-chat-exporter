@@ -180,7 +180,7 @@ python3 export_chats.py --help
 ## 参考项目
 
 - **[wechat-decrypt](https://github.com/LC044/WeChatMsg)** — 微信数据库解密方法论
-- **[qq-win-db-key](https://github.com/QQ-DB-Key)** — QQ NT 数据库密钥提取
+- **[qq-db-key-injector](https://github.com/Mrs4s/qq-db-key-injector)** — QQ 本机数据库密钥提取
 
 ---
 

@@ -61,13 +61,6 @@ python3 export_hermes.py --help
 {"role": "assistant", "content": "好的，opencode 安装命令是..."}
 ```
 
-## 统计信息
-
-- 导出会话数：111
-- 过滤噪声消息：5258 条
-- 输出文件数：105
-- 总大小：3.3M
-
 ## 依赖
 
 - Python 3.8+（标准库即可，无需额外安装）
