@@ -20,7 +20,7 @@
 |------|--------|------|------|------|
 | [Trae CN](trae/) | SQLCipher 4 | 密钥需从进程内存中提取 | Windows | ✅ 完成 |
 | [Hermes](hermes/) | 明文 SQLite | 无 | 跨平台 | ✅ 完成 |
-| [OpenCode](opencode/) | 明文 SQLite | 无 | 跨平台 | 🚧 未实现（占位） |
+| [OpenCode](opencode/) | 明文 SQLite | 无 | 跨平台 | ✅ 完成 |
 | [QQ Android](qq-phone/) | SQLite + XOR | 两套 XOR 密钥 | 需 root 提机，脚本跨平台 | ✅ 完成 |
 
 ## 输出格式
@@ -43,9 +43,12 @@ cd hermes && python export_hermes.py
 
 # QQ Android（需先从 root 手机 adb pull 数据库到本地）
 cd qq-phone && python3 export_chats.py
+
+# OpenCode（跨平台，无需额外依赖）
+cd opencode && python export_opencode.py
 ```
 
-> 🤖 **用 AI 跑？** 每个工具目录（`trae/` `hermes/` `qq-phone/`）都自带一份 `SKILLS.md` —— 给 AI 助手读的操作手册：前置条件、命令、失败模式对照表、校验方式。把对应子目录丢给任意 AI 编程助手，它能自己判断前置条件、跑命令、校验结果。
+> 🤖 **用 AI 跑？** 每个工具目录（`trae/` `hermes/` `qq-phone/` `opencode/`）都自带一份 `SKILLS.md` —— 给 AI 助手读的操作手册：前置条件、命令、失败模式对照表、校验方式。把对应子目录丢给任意 AI 编程助手，它能自己判断前置条件、跑命令、校验结果。
 
 每个子目录都是独立工具，有各自的 README 说明原理和数据库结构。
 
@@ -55,14 +58,14 @@ cd qq-phone && python3 export_chats.py
 agent-chat-exporter/
 ├── trae/         # Trae CN — SQLCipher 4，三步流水线：取密钥 → 解密 → 导出
 ├── hermes/       # Hermes — 明文 SQLite
-├── opencode/     # OpenCode CLI — 明文 SQLite（占位，未实现）
+├── opencode/     # OpenCode CLI — 明文 SQLite，只导顶层会话，子代理自动跳过
 ├── qq-phone/     # QQ Android — XOR 加密，含密钥推导分析
 ├── README.md
 ├── LICENSE       # MIT
 └── .gitignore
 ```
 
-每个工具目录内还有一份 `SKILLS.md`，给 AI 助手读（`opencode/` 没有，因为未实现）。
+每个工具目录内还有一份 `SKILLS.md`，给 AI 助手读（每份自包含前置条件/命令/输出契约/校验/失败模式）。
 
 ## 技术栈
 
