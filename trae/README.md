@@ -2,6 +2,8 @@
 
 从 Trae CN（字节跳动 AI IDE）的 SQLCipher 加密数据库中解密并提取聊天记录，导出为 JSONL。
 
+> 🤖 AI 助手请看同目录 `SKILLS.md`（前置条件、config.json 用法、失败模式、校验方式）。
+
 ## 目录结构
 
 ```
