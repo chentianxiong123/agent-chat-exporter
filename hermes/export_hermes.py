@@ -1,11 +1,24 @@
 #!/usr/bin/env python3
 """Export Hermes state.db to JSONL with noise filtering.
 Filters out tool callbacks, system notifications, logs, and context compaction.
-"""
-import os, re, json, sqlite3, shutil
 
-DB = "/tmp/hermes_state.db"
-OUT = "/tmp/hermes_chat_jsonl"
+用法:
+    python export_hermes.py                          # 默认 ~/.hermes/state.db -> ./hermes_chat_jsonl
+    python export_hermes.py --db /path/state.db --out /path/out
+"""
+import os, re, json, sqlite3, shutil, argparse
+
+def parse_args():
+    p = argparse.ArgumentParser(description="从 Hermes 本地数据库导出聊天记录为 JSONL")
+    p.add_argument("--db", default=os.path.expanduser("~/.hermes/state.db"),
+                   help="state.db 路径")
+    p.add_argument("--out", default="./hermes_chat_jsonl",
+                   help="输出目录（会先清空重建）")
+    return p.parse_args()
+
+ARGS = parse_args()
+DB = ARGS.db
+OUT = ARGS.out
 
 # Patterns that indicate noise (not real user/assistant content)
 NOISE_PATTERNS = [

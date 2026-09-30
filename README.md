@@ -45,6 +45,8 @@ cd hermes && python export_hermes.py
 cd qq-phone && python3 export_chats.py
 ```
 
+> 🤖 **用 AI 跑？** 看 [SKILLS.md](SKILLS.md)。那是一份给 AI 助手读的操作手册，把仓库连同它丢给任意 AI 编程助手，它能自己判断前置条件、跑命令、校验结果。
+
 每个子目录都是独立工具，有各自的 README 说明原理和数据库结构。
 
 ## 项目结构
@@ -56,6 +58,7 @@ agent-chat-exporter/
 ├── opencode/     # OpenCode CLI — 明文 SQLite（占位，未实现）
 ├── qq-phone/     # QQ Android — XOR 加密，含密钥推导分析
 ├── README.md
+├── SKILLS.md     # 给 AI 助手读的操作手册
 ├── LICENSE       # MIT
 └── .gitignore
 ```

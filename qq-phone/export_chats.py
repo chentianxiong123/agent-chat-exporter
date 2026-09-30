@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
-"""QQ聊天记录V2导出 - 精简可读格式"""
-import sqlite3, json, os, re, glob
+"""QQ聊天记录V2导出 - 精简可读格式
+
+用法:
+    python3 export_chats.py                          # 默认 ./databases -> ./exports
+    python3 export_chats.py --db-dir /path --out /path/out
+"""
+import sqlite3, json, os, re, glob, argparse
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict
 
@@ -265,8 +270,22 @@ def process(db_path, nicks, export_dir):
     return account, total_priv, total_grp
 
 # ===== 主流程 =====
-DB_DIR = '/tmp/db_scan/databases'
-EXPORT_DIR = '/mnt/shared/QQ_备份_20260802/exports_v2'
+def parse_args():
+    p = argparse.ArgumentParser(description="从 QQ Android 本地数据库导出聊天记录为 JSONL")
+    p.add_argument("--db-dir", default="./databases", help="数据库目录（包含 *.db）")
+    p.add_argument("--out", default="./exports", help="输出目录")
+    return p.parse_args()
+
+ARGS = parse_args()
+DB_DIR = ARGS.db_dir
+EXPORT_DIR = ARGS.out
+if not os.path.isdir(DB_DIR):
+    raise SystemExit(
+        f"[!] 找不到数据库目录: {DB_DIR}\n"
+        f"    先从 root 手机提取:\n"
+        f"      adb root\n"
+        f"      adb pull /data/data/com.tencent.mobileqq/databases/ {DB_DIR}/"
+    )
 os.makedirs(EXPORT_DIR, exist_ok=True)
 
 dbs = sorted(glob.glob(os.path.join(DB_DIR, '*.db')))

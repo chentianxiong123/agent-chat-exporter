@@ -142,12 +142,14 @@ adb root
 adb pull /data/data/com.tencent.mobileqq/databases/ ./databases/
 ```
 
-3. **配置路径**：修改脚本中的 `DB_DIR` 和 `EXPORT_DIR`
+3. **指定路径**：默认读 `./databases` 输出到 `./exports`，也可用 `--db-dir` / `--out` 指定
 
 ### 运行
 
 ```bash
-python3 export_chats.py
+python3 export_chats.py                                # 默认 ./databases -> ./exports
+python3 export_chats.py --db-dir /path --out /path/out
+python3 export_chats.py --help
 ```
 
 ### 输出

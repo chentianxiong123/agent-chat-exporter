@@ -36,20 +36,15 @@ Hermes 使用明文 SQLite，无加密。核心表：
 
 ## 使用方法
 
-### 1. 准备数据库
+脚本默认只读打开 `~/.hermes/state.db`，无需手动复制。
 
 ```bash
-# 如果数据库被锁定，先复制到临时目录
-cp ~/.hermes/state.db /tmp/hermes_state.db
+python3 export_hermes.py                          # 默认: ~/.hermes/state.db -> ./hermes_chat_jsonl
+python3 export_hermes.py --db /path/state.db --out /path/out
+python3 export_hermes.py --help
 ```
 
-### 2. 运行导出
-
-```bash
-python export_hermes.py
-```
-
-### 3. 输出位置
+输出位置
 
 ```
 ./hermes_chat_jsonl/
