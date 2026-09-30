@@ -1,1 +1,31 @@
-https://github.com/a1/trae-db-toolkit.git
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# 运行生成的配置文件（含密钥，切勿提交）
+config.json
+
+# SQLite 数据库文件
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite-journal
+
+# 导出的聊天记录（体积大、含隐私，不入库）
+exports/
+trae_chat_jsonl/
+hermes_chat_jsonl/
+*chat_jsonl/
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

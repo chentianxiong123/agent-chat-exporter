@@ -1,14 +1,14 @@
-# QQ Android Database Toolkit
+# QQ Android Chat Export
 
-从 QQ Android 加密数据库中提取聊天记录的工具集。
+从 QQ Android 的 XOR 加密 SQLite 数据库中提取聊天记录，导出为 JSONL。
 
 ## 目录结构
 
 ```
-qq/
+qq-phone/
 ├── export_chats.py      # 主导出脚本，完整解密并导出 JSONL
 ├── README.md            # 本文档
-└── requirements.txt     # 依赖（无额外依赖，仅需 Python 标准库）
+└── requirements.txt     # 无额外依赖，仅需 Python 3 标准库
 ```
 
 ## 原理

@@ -1,16 +1,16 @@
-# Trae CN Database Toolkit
+# Trae CN Chat Export
 
-从 Trae CN（字节跳动 AI IDE）加密数据库中提取聊天记录的工具集。
+从 Trae CN（字节跳动 AI IDE）的 SQLCipher 加密数据库中解密并提取聊天记录，导出为 JSONL。
 
 ## 目录结构
 
 ```
-trae-db-toolkit/
+trae/
 ├── 1_find_key/          # 从进程内存中提取 SQLCipher 加密密钥
 ├── 2_decrypt_db/        # 用密钥解密数据库，导出全部表为 JSON
 ├── 3_export_chats/      # 按工作区分会话导出清洁聊天 JSONL
 ├── scripts/             # 配置与一键脚本
-├── config.json          # 路径与密钥缓存
+├── config.json          # 路径与密钥缓存（首次运行自动生成，勿提交）
 ├── run.py               # 一键运行
 └── requirements.txt
 ```
